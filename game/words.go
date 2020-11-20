@@ -68,15 +68,11 @@ func GetRandomWords(lobby *Lobby) []string {
 	rand.Seed(time.Now().Unix())
 	wordsNotToPick := lobby.alreadyUsedWords
 	wordOne := getRandomWordWithCustomWordChance(lobby, wordsNotToPick, lobby.CustomWords, lobby.CustomWordsChance)
-	wordsNotToPick = append(wordsNotToPick, wordOne)
-	wordTwo := getRandomWordWithCustomWordChance(lobby, wordsNotToPick, lobby.CustomWords, lobby.CustomWordsChance)
-	wordsNotToPick = append(wordsNotToPick, wordTwo)
-	wordThree := getRandomWordWithCustomWordChance(lobby, wordsNotToPick, lobby.CustomWords, lobby.CustomWordsChance)
 
 	return []string{
 		wordOne,
-		wordTwo,
-		wordThree,
+		wordOne,
+		wordOne,
 	}
 }
 
