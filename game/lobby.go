@@ -506,7 +506,7 @@ func selectNextDrawer(lobby *Lobby) (*Player, bool) {
 			//If we have someone that's drawing, take the next one
 			for i := index + 1; i < len(lobby.Players); i++ {
 				player := lobby.Players[i]
-				if player.Connected {
+				if player.Connected && (strings.Contains(player.Name, "GAMBAR")){
 					return player, false
 				}
 			}
