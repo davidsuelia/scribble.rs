@@ -501,15 +501,15 @@ func endGame(lobby *Lobby) {
 // doesn't tell the lobby yet. The boolean signals whether the current round is
 // over.
 func selectNextDrawer(lobby *Lobby) (*Player, bool) {
-	for index, otherPlayer := range lobby.Players {
+	for index, _ := range lobby.Players {
 			//If we have someone that's drawing, take the next one
 			for i := index + 1; i < len(lobby.Players); i++ {
 				player := lobby.Players[i]
 				if player.Connected && (strings.Contains(player.Name, "GAMBAR")){
 					return player, false
 				}
-			}
-	}
+				}
+				}
 
 	return lobby.Players[0], true
 }
