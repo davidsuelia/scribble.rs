@@ -502,6 +502,8 @@ func endGame(lobby *Lobby) {
 // over.
 func selectNextDrawer(lobby *Lobby) (*Player, bool) {
 	for index, _ := range lobby.Players {
+				if otherPlayer == lobby.Drawer {
+
 			//If we have someone that's drawing, take the next one
 			for i := index + 1; i < len(lobby.Players); i++ {
 				player := lobby.Players[i]
@@ -510,7 +512,7 @@ func selectNextDrawer(lobby *Lobby) (*Player, bool) {
 				}
 				}
 				}
-
+	}
 	return lobby.Players[0], true
 }
 
