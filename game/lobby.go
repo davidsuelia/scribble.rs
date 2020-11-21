@@ -513,7 +513,7 @@ func selectNextDrawer(lobby *Lobby) (*Player, bool) {
 				}
 				}
 	}
-	return lobby.Players[0], true
+	return lobby.Players[1], true
 }
 
 func roundTimerTicker(lobby *Lobby) {
