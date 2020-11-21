@@ -521,12 +521,10 @@
     socket.onerror = error => console.log("Socket Error: ", error);
 
     function promptWords(wordOne, wordTwo, wordThree) {
-        socket.send(JSON.stringify({
-            type: "choose-word",
-            data: 0
-        }));
-        allowDrawing = true;
-        wordDialog.style.visibility = "hidden";
+        wordButtonZero.textContent = wordOne;
+        wordButtonOne.textContent = wordTwo;
+        wordButtonTwo.textContent = wordThree;
+        wordDialog.style.visibility = "visible";
     }
 
     function playWav(file) {
