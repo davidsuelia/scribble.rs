@@ -182,7 +182,9 @@ func handleMessage(input string, sender *Player, lobby *Lobby) {
 		sendMessageToAll(trimmed, sender, lobby)
 		return
 	}
-
+	if sender.Name[0:3] == lobby.Drawer.Name[0:3]{
+		sender.State == Standby	
+	}
 	if sender.State == Drawing || sender.State == Standby {
 		sendMessageToAllNonGuessing(trimmed, sender, lobby)
 	} else if sender.State == Guessing {
@@ -191,10 +193,10 @@ func handleMessage(input string, sender *Player, lobby *Lobby) {
 
 		normInput := removeAccents(lowerCasedInput)
 		normSearched := removeAccents(lowerCasedSearched)
-
+		
 		if normSearched == normInput {
 			secondsLeft := lobby.RoundEndTime/1000 - time.Now().UTC().UnixNano()/1000000000
-			sender.LastScore = int(math.Ceil(math.Pow(math.Max(float64(secondsLeft), 1), 1.3) * 2))
+			sender.LastScore = 30
 			sender.Score += sender.LastScore
 			lobby.scoreEarnedByGuessers += sender.LastScore
 			sender.State = Standby
@@ -426,7 +428,7 @@ func endTurn(lobby *Lobby) {
 		averageScore := float64(lobby.scoreEarnedByGuessers) / float64(len(lobby.Players)-1)
 		if averageScore > 0 {
 			drawer.LastScore = int(averageScore * 1.1)
-			drawer.Score += drawer.LastScore
+			drawer.Score += 15
 		}
 	}
 
