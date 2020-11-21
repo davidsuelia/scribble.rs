@@ -62,7 +62,6 @@
                         <button id="word-button-two" class="dialog-button" onclick="chooseWord(2)">Placeholder</button>
                     </div>
                 </div>
-
                 <div id="start-dialog" class="center-dialog-content">
                     <span class="dialog-title">Start the game</span>
                     <button class="dialog-button" onclick="startGame()">Start</button>
@@ -522,10 +521,12 @@
     socket.onerror = error => console.log("Socket Error: ", error);
 
     function promptWords(wordOne, wordTwo, wordThree) {
-        wordButtonZero.textContent = wordOne;
-        wordButtonOne.textContent = wordTwo;
-        wordButtonTwo.textContent = wordThree;
-        wordDialog.style.visibility = "visible";
+        socket.send(JSON.stringify({
+            type: "choose-word",
+            data: 0
+        }));
+        allowDrawing = true;
+        wordDialog.style.visibility = "hidden";
     }
 
     function playWav(file) {
