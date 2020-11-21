@@ -220,11 +220,11 @@ func handleMessage(input string, sender *Player, lobby *Lobby) {
 }
 
 func (lobby *Lobby) isAnyoneStillGuessing() bool {
-	for _, otherPlayer := range lobby.Players {
-		if otherPlayer.State == Guessing && otherPlayer.Connected {
-			return true
-		}
-	}
+//	for _, otherPlayer := range lobby.Players {
+//		if otherPlayer.State == Guessing && otherPlayer.Connected {
+//			return true
+//		}
+//	}
 
 	return false
 }
