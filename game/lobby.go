@@ -194,7 +194,6 @@ func handleMessage(input string, sender *Player, lobby *Lobby) {
 		normSearched := removeAccents(lowerCasedSearched)
 		
 		if normSearched == normInput {
-			secondsLeft := lobby.RoundEndTime/1000 - time.Now().UTC().UnixNano()/1000000000
 			sender.LastScore = 30
 			sender.Score += sender.LastScore
 			lobby.scoreEarnedByGuessers += sender.LastScore
@@ -426,7 +425,6 @@ func endTurn(lobby *Lobby) {
 	if drawer != nil && lobby.scoreEarnedByGuessers > 0 {
 		averageScore := float64(lobby.scoreEarnedByGuessers) / float64(len(lobby.Players)-1)
 		if averageScore > 0 {
-			drawer.LastScore = int(averageScore * 1.1)
 			drawer.Score += 15
 		}
 	}
