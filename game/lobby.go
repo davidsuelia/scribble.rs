@@ -182,7 +182,7 @@ func handleMessage(input string, sender *Player, lobby *Lobby) {
 		return
 	}
 	if sender.Name[0:3] == lobby.Drawer.Name[0:3]{
-		sender.State == Standby	
+		sender.State = Standby	
 	}
 	if sender.State == Drawing || sender.State == Standby {
 		sendMessageToAllNonGuessing(trimmed, sender, lobby)
