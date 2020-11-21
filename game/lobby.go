@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html"
 	"log"
-	"math"
 	"math/rand"
 	"strconv"
 	"strings"
