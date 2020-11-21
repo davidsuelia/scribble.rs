@@ -181,7 +181,7 @@ func handleMessage(input string, sender *Player, lobby *Lobby) {
 		sendMessageToAll(trimmed, sender, lobby)
 		return
 	}
-	if sender.Name[0:3] == lobby.Drawer.Name[0:3]{
+	if sender.Name[0:4] == lobby.Drawer.Name[0:4]{
 		sender.State = Standby	
 	}
 	if sender.State == Drawing || sender.State == Standby {
